@@ -5,7 +5,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -23,10 +22,10 @@ public class Task {
     }
 
     public Task(List<Integer> goals, List<Integer> steps) {
-        if(goals.isEmpty() || steps.isEmpty() || goals.size()!=steps.size()) {
+        if(goals == null || steps == null || goals.isEmpty() || steps.isEmpty() || goals.size()!=steps.size()) {
             throw new InputNotValidException("Input goals and steps not valid");
         }
-        this.id = UUID.randomUUID().toString();
+        this.id = UUID.randomUUID().toString().substring(0,8);
         this.status = TaskStatus.IN_PROGRESS;
         this.sequences = new CopyOnWriteArrayList<>();
         initSequence(goals, steps);
@@ -62,9 +61,9 @@ public class Task {
 
         boolean numberAdded = false;
         for(Sequence sequence: this.sequences) {
-            numberAdded = numberAdded & sequence.addNextNumber();
+            numberAdded = numberAdded | sequence.addNextNumber();
         }
-        if(numberAdded == false) {
+        if(!numberAdded) {
             setCompleteStatus();
         }
     }

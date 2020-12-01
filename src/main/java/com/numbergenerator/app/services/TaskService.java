@@ -9,11 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Service
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class TaskService {
     Map<String, Task> taskMap;
 
@@ -35,7 +34,7 @@ public class TaskService {
 
     public Task getTaskById(String taskId) {
         if(!taskMap.containsKey(taskId)) {
-            throw new TaskNotFoundException();
+            throw new TaskNotFoundException("No task exists with id: "+ taskId);
         }
         return taskMap.get(taskId);
     }

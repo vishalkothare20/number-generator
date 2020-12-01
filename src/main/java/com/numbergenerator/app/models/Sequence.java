@@ -25,7 +25,7 @@ public class Sequence {
         numbers = new CopyOnWriteArrayList<>();
     }
 
-    // Returns true if next number is added to the sequence
+    // Returns true if sequence is not completed
     // else false
     public synchronized boolean addNextNumber() {
         if(numbers.isEmpty()) {
@@ -33,7 +33,10 @@ public class Sequence {
             return true;
         } else {
             int nextNumber = numbers.get(numbers.size() -1) - step;
-            if(step >=0) {
+            if(nextNumber == 0) {
+                numbers.add(nextNumber);
+                return false;
+            } else if(nextNumber >= 0) {
                 numbers.add(nextNumber);
                 return true;
             }
