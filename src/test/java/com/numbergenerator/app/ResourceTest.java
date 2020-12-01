@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AppApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class ResourceTests {
+public class ResourceTest {
     @Autowired
     private TestRestTemplate restTemplate;
     @Autowired
