@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "e5fcdfe4-0333-49a1-b0a5-4ef5a579369b",
+		"name": "Number Generator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"goal\": \"10\",\n    \"step\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/generate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Bulk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"goal\": \"10\",\n        \"step\": \"2\"\n    },\n    {\n        \"goal\": \"100\",\n        \"step\": \"5\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/bulkGenerate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bulkGenerate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get task Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/tasks/90eec43a/status",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks",
+						"90eec43a",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get num list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/tasks/d13c8d98-4583-4402-a6b1-abd5a83e66ab?action=get_numlist",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks",
+						"d13c8d98-4583-4402-a6b1-abd5a83e66ab"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "get_numlist"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get num list bulk",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/tasks/6def0f58?action=get_numlist",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tasks",
+						"6def0f58"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "get_numlist"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
