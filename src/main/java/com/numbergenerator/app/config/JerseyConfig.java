@@ -1,0 +1,12 @@
+package com.numbergenerator.app.config;
+
+import com.numbergenerator.app.resources.TaskResource;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class JerseyConfig extends ResourceConfig {
+    public JerseyConfig() {
+        register(TaskResource.class);
+    }
+}
